@@ -1,0 +1,39 @@
+{
+  "name": "Відлік для iPhone",
+  "identifier": "com.pisotsky.vidlik.source",
+  "sourceURL": "https://yevgen4989.github.io/vidlik-ios/apps.json",
+  "apps": [
+    {
+      "name": "Відлік",
+      "bundleIdentifier": "com.pisotsky.vidlik",
+      "developerName": "Відлік",
+      "localizedDescription": "Події, автошкола, реабілітація та інші модулі Відліку.",
+      "iconURL": "https://yevgen4989.github.io/vidlik-ios/icon.png",
+      "permissions": [
+        {
+          "type": "faceid",
+          "usageDescription": "Розблокування Відліку"
+        },
+        {
+          "type": "location",
+          "usageDescription": "Показати твоє місцеположення на мапі під час вибору точки зустрічі."
+        },
+        {
+          "type": "photos",
+          "usageDescription": "Додати вибрану фотографію до події або матеріалів вправи."
+        }
+      ],
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-11-18T16:30:36+00:00",
+          "downloadURL": "https://github.com/yevgen4989/vidlik-ios/releases/download/ios-1.0.0/Vidlik-1.0.0-2.ipa",
+          "size": 22928629,
+          "minOSVersion": "15.0",
+          "localizedDescription": "Перша нативна збірка для iPhone."
+        }
+      ]
+    }
+  ],
+  "news": []
+}
