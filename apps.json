@@ -25,6 +25,14 @@
       ],
       "versions": [
         {
+          "version": "1.1.53",
+          "date": "2026-11-18T21:15:15+00:00",
+          "downloadURL": "https://github.com/yevgen4989/vidlik-ios/releases/download/ios-1.1.53/Vidlik-1.1.53-53.ipa",
+          "size": 23581562,
+          "minOSVersion": "15.0",
+          "localizedDescription": "Автоматична збірка 1.1.53."
+        },
+        {
           "version": "1.1.52",
           "date": "2026-11-18T18:37:59+00:00",
           "downloadURL": "https://github.com/yevgen4989/vidlik-ios/releases/download/ios-1.1.52/Vidlik-1.1.52-52.ipa",
