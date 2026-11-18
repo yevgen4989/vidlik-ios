@@ -25,6 +25,14 @@
       ],
       "versions": [
         {
+          "version": "1.0.1",
+          "date": "2026-11-18T16:53:34+00:00",
+          "downloadURL": "https://github.com/yevgen4989/vidlik-ios/releases/download/ios-1.0.1/Vidlik-1.0.1-8.ipa",
+          "size": 22900537,
+          "minOSVersion": "15.0",
+          "localizedDescription": "Українська назва «Відлік» під іконкою на домашньому екрані."
+        },
+        {
           "version": "1.0.0",
           "date": "2026-11-18T16:30:36+00:00",
           "downloadURL": "https://github.com/yevgen4989/vidlik-ios/releases/download/ios-1.0.0/Vidlik-1.0.0-7.ipa",
