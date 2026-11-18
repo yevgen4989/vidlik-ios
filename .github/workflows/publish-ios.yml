@@ -1,0 +1,58 @@
+name: Publish SideStore update
+on:
+  push:
+    branches: [ios-incoming]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: sidestore-catalog
+  cancel-in-progress: false
+jobs:
+  release:
+    if: github.ref == 'refs/heads/ios-incoming' || github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: catalog
+      - name: Publish verified IPA and update the catalog
+        if: github.ref == 'refs/heads/ios-incoming'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 catalog/tools/publish_ios.py incoming catalog/apps.json
+          git -C catalog add apps.json
+          if ! git -C catalog diff --cached --quiet; then
+            git -C catalog -c user.name='github-actions[bot]' \
+              -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+              commit -m 'Update SideStore catalog'
+            git -C catalog push origin HEAD:main
+          fi
+      - name: Stage public catalog
+        run: |
+          mkdir site
+          cp catalog/apps.json catalog/icon.png site/
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+  deploy:
+    needs: release
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.pages.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: pages
